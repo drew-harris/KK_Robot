@@ -64,6 +64,9 @@ int OmniMove::correctAngle(int inputAngle) {
 
 }
 
+void OmniMove::go(int angle) {
+  go(angle, 30);
+}
 
 void OmniMove::go(int angle, int speed) {
   switch(correctAngle(angle)) {
