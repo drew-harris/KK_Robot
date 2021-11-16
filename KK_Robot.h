@@ -5,6 +5,7 @@
 #include "Arduino.h"
 #include "./KK_Nav.h"
 #include "./KK_Movement.h"
+#include ".conductivitynew.h"
 #include <Servo.h>
 
 class Robot : public OmniMove, public Navigation {
@@ -24,6 +25,16 @@ class Robot : public OmniMove, public Navigation {
     void dropSalinity() {
       salinityMotor.write(180);
       delay(1000);
+    }
+
+    int getSalinity() {
+      double slope = 12.884;
+      double intercept = 172.341;
+      adc = getConductivity();
+      salinity = slope / (adc - intercept);
+
+      return salinity;
+
     }
 
   private:
