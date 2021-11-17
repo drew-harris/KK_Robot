@@ -51,6 +51,13 @@ class Robot : public OmniMove, public Navigation {
 
     }
 
+    double getIncline() {
+       int sensorValue = analogRead(A1);
+       double angle = sensorValue * 0.2531 - 125;
+       
+       return angle;
+    } 
+
   private:
     Servo salinityMotor;
     LiquidCrystal_I2C *lcd;
