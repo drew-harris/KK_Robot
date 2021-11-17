@@ -17,6 +17,7 @@ class Navigation {
     int _irPin;
     int _trigPin;
     int _echoPin;
+    double measureDistanceOnce();
 
     Servo navServo;
 };

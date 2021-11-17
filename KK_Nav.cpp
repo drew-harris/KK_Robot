@@ -27,7 +27,43 @@ void Navigation::turnNav(int angle) {
   _angle = angle;
 }
 
+void swap(double *a, double *b) {
+  double temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+void selectionSort(double array[], int size) {
+  for (int step = 0; step < size - 1; step++) {
+    int min_idx = step;
+    for (int i = step + 1; i < size; i++) {
+      if (array[i] < array[min_idx])
+        min_idx = i;
+    }
+    swap(&array[min_idx], &array[step]);
+  }
+}
+
+// Hope this works
+double median(double arr[], int size){
+  selectionSort(arr, 5);
+  if (size % 2 != 0)
+    return (double)arr[size/2];
+  return (double)(arr[(size-1)/2] + arr[size/2])/2.0;
+}
+
+
 double Navigation::measureDistance() {
+  double distances[5];
+  for (int i = 0; i < 5; ++i) {
+    distances[i] = measureDistanceOnce();
+    delay(30);
+  }
+  return median(distances, 5);
+
+}
+
+double Navigation::measureDistanceOnce() {
   long duration; // variable for the duration of sound wave travel
   double distance; // variable for the distance measurement
   digitalWrite(_trigPin, LOW);
