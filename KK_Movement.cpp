@@ -1,3 +1,5 @@
+
+   
 #include "Arduino.h"
 #include <Servo.h>
 #include "KK_Movement.h"
@@ -89,8 +91,8 @@ void OmniMove::go(int angle, int speed) {
     
     // Right
     case 90:
-      motorControl(flMotor, speed * 1.2);
-      motorControl(frMotor, speed * frOffset);
+      motorControl(flMotor, speed * 1.1);
+      motorControl(frMotor, speed * 0.9);
       motorControl(brMotor, -speed * brOffset);
       motorControl(blMotor, -speed * blOffset);
 
@@ -125,8 +127,8 @@ void OmniMove::go(int angle, int speed) {
     // Left
     case 270:
       motorControl(flMotor, -speed * 0.9 );
-      motorControl(frMotor, -speed );
-      motorControl(brMotor, speed );
+      motorControl(frMotor, -speed * 0.8 );
+      motorControl(brMotor, speed *0.9);
       motorControl(blMotor, speed );
 
       break;
