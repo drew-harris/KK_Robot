@@ -1,5 +1,3 @@
-
-   
 #include "Arduino.h"
 #include <Servo.h>
 #include "KK_Movement.h"

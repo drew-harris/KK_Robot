@@ -38,7 +38,7 @@ class Robot : public OmniMove, public Navigation {
     void dropSalinity() {
      // salinityMotor.write(180);
      // delay(2000);
-      salinityMotor.write(0);
+      salinityMotor.write(1700);
     }
 
     double getSalinity() {
@@ -55,7 +55,7 @@ class Robot : public OmniMove, public Navigation {
 
     double getIncline() {
        int sensorValue = analogRead(A1);
-       double angle = sensorValue * 3.6697 + 561.46;
+       double angle = sensorValue / 52 + 0.5;
        
        return angle;
     } 
