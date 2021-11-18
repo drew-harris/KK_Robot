@@ -124,10 +124,10 @@ void OmniMove::go(int angle, int speed) {
 
     // Left
     case 270:
-      motorControl(flMotor, -speed * 1.1);
-      motorControl(frMotor, -speed * 0.5);
-      motorControl(brMotor, speed * brOffset);
-      motorControl(blMotor, speed * 0.5);
+      motorControl(flMotor, -speed * 0.9 );
+      motorControl(frMotor, -speed );
+      motorControl(brMotor, speed );
+      motorControl(blMotor, speed );
 
       break;
 
