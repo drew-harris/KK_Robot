@@ -92,7 +92,7 @@ void OmniMove::go(int angle, int speed) {
       motorControl(flMotor, speed * 1.1);
       motorControl(frMotor, speed * 0.9);
       motorControl(brMotor, -speed * brOffset);
-      motorControl(blMotor, -speed * blOffset);
+      motorControl(blMotor, -speed * 1.5);
 
       break;
 

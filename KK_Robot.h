@@ -55,9 +55,10 @@ class Robot : public OmniMove, public Navigation {
 
     double getIncline() {
        int sensorValue = analogRead(A1);
+       return double(sensorValue);
        double angle = sensorValue / 52 + 0.5;
        
-       return angle;
+       return 10.1;
     } 
 
   private:
